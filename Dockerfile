@@ -1,4 +1,4 @@
 FROM java:8
-ARG JAR_FILE=build/libs/*.jar
+ARG JAR_FILE=var/jenkins_home/build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
