@@ -1,6 +1,4 @@
-FROM java:8
-VOLUME /tmp
-EXPOSE 8080
-ARG JAR_FILE=target/jenkinsdeploy-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} app.jar
+FROM openjdk:11-jdk
+ARG JAR_FILE=./build/libs/*.jar
+COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
