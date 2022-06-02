@@ -18,9 +18,9 @@ repositories { // 공개 바이너리 리포지토리
     mavenCentral()
 }
 
-jar{
-    enabled = false
-}
+//jar{
+//    enabled = false
+//}
 dependencies {
     // implementation : 구현 전용 종속성
     // 컴파일 런타임 둘 다 사용
