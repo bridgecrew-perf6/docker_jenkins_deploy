@@ -1,12 +1,12 @@
 plugins {
     id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+    id 'java' // java application build에 필요한 도구들 제공
 }
 
 group = 'study'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '11' // 소스 파일 컴파일에 사용할 java 언어 버전
 
 configurations {
     compileOnly {
@@ -14,23 +14,26 @@ configurations {
     }
 }
 
-repositories {
+repositories { // 공개 바이너리 리포지토리
     mavenCentral()
 }
 
+jar{
+    enabled = false
+}
 dependencies {
+    // implementation : 구현 전용 종속성
+    // 컴파일 런타임 둘 다 사용
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // compileOnly : 런타임에는 사용되지 않음
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    // 태스트 컴파일 런타임에 사용
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
-task print()
-{
-    doLast{
-        println "testing..."
-    }
-}
+
 
 
 tasks.named('test') {
